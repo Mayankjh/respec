@@ -187,6 +187,8 @@ async function fetchAndStoreGithubIssues(githubAPI) {
     .filter(issueNumber => issueNumber)
     .map(async issueNumber => {
       const issueURL = `${githubAPI}/issues/${issueNumber}`;
+      // TODO: Implement cache strategy here. 
+      //       Waiting on https://github.com/w3c/respec/pull/1555/files#diff-aa6009161df81293880ab4f7c52d9748
       const response = await fetch(issueURL, {
         // Get back HTML content instead of markdown
         // See: https://developer.github.com/v3/media/
